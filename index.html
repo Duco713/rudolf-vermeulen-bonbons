@@ -119,26 +119,17 @@
 <body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
 <!-- Navigation -->
 <nav class="fixed w-full top-0 z-50 bg-ivory-base border-b border-outline-variant/30 transition-all duration-300" id="main-nav">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
-<a aria-label="Rudolf Vermeulen Bonbons" class="flex-shrink-0" href="#">
+<div class="relative flex items-center justify-between md:justify-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
+<a aria-label="Rudolf Vermeulen Bonbons" class="flex-shrink-0 md:absolute md:left-margin-desktop md:top-1/2 md:-translate-y-1/2" href="#">
 <img alt="Rudolf Vermeulen Bonbons Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLuDf9VY2x5s7S_RBHSPdH62UkSVdHALBhuZGqxZJLFzck89nCEV64QQUzbbohPJbe3XJ03sykenKCHIWS0xFGH8mEJ7qgVJXUL1BLBmYbt67qOJMw6iW8f1m_vLLS3Tz1X_qUkLKGlc4cGdkmwX7dhUp2hEZmp6WGAFDXPbANhckSq1b6og9dj_APuV-YNpU1X5RuC1hliOT0zU4DLunmAb2rhGOoBeCHOjdUJ3SZYEotRY1VzJE4Ug_NJJ"/>
 </a>
 <!-- Desktop Nav -->
-<div class="hidden md:flex items-center gap-8">
+<div class="hidden md:flex items-center justify-center gap-8">
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#producten">Producten</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#workshops">Workshops</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#over-ons">Over ons</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#winkels">Winkels</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
-</div>
-<div class="hidden md:flex items-center gap-4">
-<button aria-label="Account" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300">
-<span class="material-symbols-outlined">person</span>
-</button>
-<button aria-label="Winkelwagen" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300 relative" id="cart-btn">
-<span class="material-symbols-outlined">shopping_bag</span>
-<span class="absolute top-1 right-1 min-w-[16px] h-4 px-1 bg-secondary text-white text-[10px] leading-4 text-center rounded-full hidden" id="cart-count">0</span>
-</button>
 </div>
 <!-- Mobile Menu Toggle -->
 <button aria-label="Menu" class="md:hidden p-2 text-on-surface-variant" id="mobile-menu-btn">
@@ -254,77 +245,72 @@
 </div>
 <div class="flex overflow-x-auto pb-8 mb-12 gap-4 hide-scrollbar justify-start md:justify-center" id="product-filters">
 <button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-warm-beige text-deep-brown font-label-lg border border-secondary/20 transition-all" data-filter="alle" aria-pressed="true">Alle Creaties</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="puur" aria-pressed="false">Puur (70%+)</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="melk" aria-pressed="false">Melk &amp; Karamel</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="wit" aria-pressed="false">Wit &amp; Fruit</button>
+<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="bonbons" aria-pressed="false">Bonbons</button>
+<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="pasen" aria-pressed="false">Pasen</button>
+<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="sinterklaas" aria-pressed="false">Sinterklaas</button>
+<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="kerst" aria-pressed="false">Kerst</button>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="product-grid">
-<!-- Signature Item -->
-<article class="product-card lg:col-span-2 group relative bg-ivory-base rounded-xl overflow-hidden border border-secondary/30 flex flex-col md:flex-row transition-all duration-500 hover:shadow-xl" data-category="wit">
+<!-- Bonbons van Rudolf Vermeulen -->
+<article class="product-card lg:col-span-2 group relative bg-ivory-base rounded-xl overflow-hidden border border-secondary/30 flex flex-col md:flex-row transition-all duration-500 hover:shadow-xl" data-category="bonbons">
 <div class="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
-<img alt="Madagaskar Vanille Droom" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD-OYBSNfp6yKX0EwY32vTyK5KR5x1bkOPpPv4sSwbFUNKvG6u4LBpEtAurcyrr4YWJrrpHAJvyybDOBt7jkWgmZr2MSOSoakFTcWczYC83XOa0O215P8G8L2xFt-4SdOaPZl-B43OB5BcYw4gIZJJKJVOyA26ML4_-QcklCQjeB3tPBPL2H6nPwVe80FbheRvebhIOdf9S_alXhlabmNDlyswxD5TsmnRA1tlU8Brtzkn3E_VsMQuvA"/>
+<img alt="Bonbons van Rudolf Vermeulen" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD-OYBSNfp6yKX0EwY32vTyK5KR5x1bkOPpPv4sSwbFUNKvG6u4LBpEtAurcyrr4YWJrrpHAJvyybDOBt7jkWgmZr2MSOSoakFTcWczYC83XOa0O215P8G8L2xFt-4SdOaPZl-B43OB5BcYw4gIZJJKJVOyA26ML4_-QcklCQjeB3tPBPL2H6nPwVe80FbheRvebhIOdf9S_alXhlabmNDlyswxD5TsmnRA1tlU8Brtzkn3E_VsMQuvA"/>
 </div>
 <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
 <div class="flex items-center gap-2 mb-4">
-<span class="bg-warm-beige text-deep-brown font-label-sm px-3 py-1 rounded-full">Exclusief Wit</span>
+<span class="bg-warm-beige text-deep-brown font-label-sm px-3 py-1 rounded-full">Ons Assortiment</span>
 </div>
-<h3 class="font-headline-lg text-deep-brown mb-4">Madagaskar Vanille Droom</h3>
+<h3 class="font-headline-lg text-deep-brown mb-4">Bonbons van Rudolf Vermeulen</h3>
 <p class="font-body-md text-on-surface-variant mb-8">
-                        Onze meest geliefde witte creatie. Een kern van luchtige ganache met echte Bourbon-vanille uit Madagaskar, omhuld door een krakend dun laagje romige witte chocolade. Een subtiele zoetheid die langzaam wegsmelt op de tong.
+                        Heerlijke bonbons van melk-, pure of witte chocolade. Vanuit onze kleinschalige fabriek zorgen we voor een uitgebreid assortiment — met dezelfde zorg en het handwerk waarmee het in 1939 begon.
                     </p>
-<div class="flex items-center justify-between mt-auto">
-<span class="font-headline-md text-secondary">€ 28,50 / doos</span>
-<button class="add-to-cart w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" data-name="Madagaskar Vanille Droom" data-price="28,50" aria-label="Voeg Madagaskar Vanille Droom toe aan winkelwagen">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-</button>
-</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-secondary hover:text-primary transition-colors mt-auto" href="#winkels">
+                        Verkrijgbaar in onze winkels <span class="material-symbols-outlined text-sm">storefront</span>
+</a>
 </div>
 </article>
-<!-- Product Card 1 -->
-<article class="product-card group relative bg-warm-beige/30 rounded-xl overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-1" data-category="puur">
+<!-- Bonbons voor Pasen -->
+<article class="product-card group relative bg-warm-beige/30 rounded-xl overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-1" data-category="pasen">
 <div class="relative h-64 overflow-hidden p-4">
-<img alt="Ecuador Grand Cru Pure Chocolade" class="w-full h-full object-cover rounded-lg transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Obw_Vo8Hne7dyg05OqmSuzE4LyEmonuREtGYr3GICHgLWjnmlvHPke21nVYCnV6Q8kKFSjZDRRGKVgEZTwlT7MCDjiQb6IAz5u9zTUl5jJ_5AR0F3F0ajhLnYAZp33IcKxh6iqcaM3o4IgJq3lnqtzFQFGlR44TI5IcFgt1GltryFHyiarTIhSYZNmhHLQTS1xMEyIyWRqtuIDsWyW_UV8h4JgrcShlx_LAlk0_3FgeY3O8nyVjdYQ"/>
+<img alt="Bonbons voor Pasen" class="w-full h-full object-cover rounded-lg transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Obw_Vo8Hne7dyg05OqmSuzE4LyEmonuREtGYr3GICHgLWjnmlvHPke21nVYCnV6Q8kKFSjZDRRGKVgEZTwlT7MCDjiQb6IAz5u9zTUl5jJ_5AR0F3F0ajhLnYAZp33IcKxh6iqcaM3o4IgJq3lnqtzFQFGlR44TI5IcFgt1GltryFHyiarTIhSYZNmhHLQTS1xMEyIyWRqtuIDsWyW_UV8h4JgrcShlx_LAlk0_3FgeY3O8nyVjdYQ"/>
 </div>
 <div class="p-6 flex flex-col flex-grow bg-white/40 backdrop-blur-sm m-2 rounded-lg border border-white/50">
-<span class="text-on-surface-variant font-label-sm mb-2">Pure Kracht - 72%</span>
-<h4 class="font-headline-md text-deep-brown mb-2">Ecuador Grand Cru</h4>
-<p class="font-body-md text-on-surface-variant mb-6 line-clamp-3">Intense pure chocolade met diepe, aardse tonen en een verrassende hint van geroosterde pecannoot en bosbessen.</p>
-<div class="flex items-center justify-between mt-auto">
-<span class="font-label-lg text-secondary">€ 24,00</span>
-<button class="add-to-cart text-primary hover:text-primary-container transition-colors flex items-center gap-1 font-label-lg" data-name="Ecuador Grand Cru" data-price="24,00">
-                            In winkelwagen <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-</button>
-</div>
+<span class="text-on-surface-variant font-label-sm mb-2">Feestdagen</span>
+<h4 class="font-headline-md text-deep-brown mb-2">Bonbons voor Pasen</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Uiteraard zorgen we tijdens de feestdagen voor bijzondere bonbons, van de hoogst mogelijke kwaliteit.</p>
+<a class="inline-flex items-center gap-1 font-label-lg text-primary hover:text-secondary transition-colors mt-auto" href="#winkels">
+                            Verkrijgbaar in onze winkels <span class="material-symbols-outlined text-sm">storefront</span>
+</a>
 </div>
 </article>
-<!-- Seasonal Banner -->
-<article class="product-card lg:col-span-2 relative rounded-xl overflow-hidden bg-deep-brown text-ivory-base flex items-center min-h-[300px]" data-category="puur">
+<!-- Chocolade met Sinterklaas -->
+<article class="product-card lg:col-span-2 relative rounded-xl overflow-hidden bg-deep-brown text-ivory-base flex items-center min-h-[300px]" data-category="sinterklaas">
 <div class="absolute inset-0 opacity-40">
-<img alt="Winterse texturen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoFwfIa4NsN8Ygo_GzvqoFqiWZjP1-vtdxNKNdRjK8ilUd2EgpjF57NtQea63blaagELj05a58RCNUtIwUn5MMuqH4Nv-KRbHe6J9XmvNoAwM0lnC5lBWuN7zQXigaYj04VUnlNo58yFHF8Czdr8grx_iPYFogHt0h8Ld5g_kSveQKwPK3_hGP64qnOrRu07OBWIGyUAV-4YCwuBpo4c9_hYao9inJSt6Qzd3zfnJYCLSXjEq4jihfJw"/>
+<img alt="Chocolade met Sinterklaas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoFwfIa4NsN8Ygo_GzvqoFqiWZjP1-vtdxNKNdRjK8ilUd2EgpjF57NtQea63blaagELj05a58RCNUtIwUn5MMuqH4Nv-KRbHe6J9XmvNoAwM0lnC5lBWuN7zQXigaYj04VUnlNo58yFHF8Czdr8grx_iPYFogHt0h8Ld5g_kSveQKwPK3_hGP64qnOrRu07OBWIGyUAV-4YCwuBpo4c9_hYao9inJSt6Qzd3zfnJYCLSXjEq4jihfJw"/>
 </div>
 <div class="relative z-10 p-8 md:p-12 w-full md:w-2/3">
 <div class="flex items-center gap-2 mb-4">
-<span class="material-symbols-outlined text-secondary">ac_unit</span>
-<span class="font-label-sm tracking-widest uppercase text-secondary-container">Limited Edition</span>
+<span class="material-symbols-outlined text-secondary">redeem</span>
+<span class="font-label-sm tracking-widest uppercase text-secondary-container">Traditie</span>
 </div>
-<h3 class="font-headline-lg mb-4">Winterse Verleidingen</h3>
+<h3 class="font-headline-lg mb-4">Chocolade met Sinterklaas</h3>
 <p class="font-body-md text-surface-variant mb-8">
-                        Laat u verwarmen door onze seizoenscollectie. Met smaken als kruidige kaneel-ganache, donkere rum-truffels en steranijs. Slechts beperkt beschikbaar.
+                        Chocolade en Sinterklaas zijn onlosmakelijk met elkaar verbonden. Onze uitgebreide ervaring en expertise met bonbons maakt ons de ideale hulp van de Sint.
                     </p>
-<button class="border border-secondary-container text-secondary-container px-6 py-3 rounded-full font-label-lg hover:bg-secondary-container hover:text-deep-brown transition-colors">
-                        Ontdek de Wintercollectie
-                    </button>
+<a class="inline-block border border-secondary-container text-secondary-container px-6 py-3 rounded-full font-label-lg hover:bg-secondary-container hover:text-deep-brown transition-colors" href="#winkels">
+                        Bekijk in onze winkels
+                    </a>
 </div>
 </article>
-<!-- Packaging Card -->
-<article class="product-card bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border border-outline-variant/30" data-category="melk">
+<!-- Kerstbonbons -->
+<article class="product-card bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border border-outline-variant/30" data-category="kerst">
 <div>
-<span class="font-label-sm text-secondary uppercase tracking-widest block mb-4">Het Perfecte Geschenk</span>
-<h4 class="font-headline-md text-deep-brown mb-4">Luxe Melange</h4>
-<p class="font-body-md text-on-surface-variant mb-6">Onze klassieke verzameling van melkchocolade met praliné, karamel met zeezout en hazelnoot-crisp. Verpakt in onze iconische linnen-look doos.</p>
+<span class="font-label-sm text-secondary uppercase tracking-widest block mb-4">Feestdagen</span>
+<h4 class="font-headline-md text-deep-brown mb-4">Kerstbonbons</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Tijdens de kerstdagen kunnen de kerstkransjes en kerstbonbons natuurlijk niet ontbreken. Zowel in de kerstboom als op tafel zorgen we ervoor dat u de keuze heeft uit tal van lekkernijen.</p>
 </div>
-<img alt="Luxe Cadeauverpakking Melange" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWKzxzdaHj67ZCw6n5crB0UdXXIztlu2yvhBnYS53g-xSnGIc8x783Jz5jqGYIvkzygQqu2kF3D7Zb8GL8kI8AwigHPe6txLYb_qXwONRcfexB8IA76_HunBZhBWqaZes-_MM_yUtUH8fpogfRgtcB9RyoT7ZjTLFsBWtMUnc4WKgieyMQXz6vYMFHEaPhlsYQj0Rwf42G-g1JI3qg-JpEC7EVwIKfoKZNQ4sZwa_5LJ37vX2OD959A"/>
-<button class="w-full py-3 bg-deep-brown text-ivory-base font-label-lg rounded-full hover:bg-secondary transition-colors">Alle Cadeau-opties</button>
+<img alt="Kerstbonbons en kerstkransjes" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWKzxzdaHj67ZCw6n5crB0UdXXIztlu2yvhBnYS53g-xSnGIc8x783Jz5jqGYIvkzygQqu2kF3D7Zb8GL8kI8AwigHPe6txLYb_qXwONRcfexB8IA76_HunBZhBWqaZes-_MM_yUtUH8fpogfRgtcB9RyoT7ZjTLFsBWtMUnc4WKgieyMQXz6vYMFHEaPhlsYQj0Rwf42G-g1JI3qg-JpEC7EVwIKfoKZNQ4sZwa_5LJ37vX2OD959A"/>
+<a class="block text-center w-full py-3 bg-deep-brown text-ivory-base font-label-lg rounded-full hover:bg-secondary transition-colors" href="#winkels">Bekijk in onze winkels</a>
 </article>
 </div>
 </div>
@@ -642,21 +628,6 @@
                 card.classList.toggle('hidden', !show);
             });
         });
-    });
-
-    // ---- Winkelwagen (voorbeeld, telt items) ----
-    const cartCount = document.getElementById('cart-count');
-    let cartItems = 0;
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-        btn.addEventListener('click', () => {
-            cartItems++;
-            cartCount.textContent = String(cartItems);
-            cartCount.classList.remove('hidden');
-            showToast(`${btn.dataset.name} toegevoegd aan winkelwagen`);
-        });
-    });
-    document.getElementById('cart-btn').addEventListener('click', () => {
-        showToast(cartItems === 0 ? 'Uw winkelwagen is nog leeg' : `${cartItems} artikel(en) in winkelwagen`);
     });
 
     // ---- Workshop knoppen ----
