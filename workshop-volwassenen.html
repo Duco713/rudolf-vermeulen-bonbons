@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workshop bonbons maken voor volwassenen | Rudolf Vermeulen Bonbons</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-container": "#785e35",
+                "on-background": "#1c1c19",
+                "inverse-on-surface": "#f3f0eb",
+                "primary-fixed-dim": "#ffb3ad",
+                "outline-variant": "#ddc0bd",
+                "surface-container-highest": "#e5e2dd",
+                "tertiary": "#373737",
+                "secondary": "#745a31",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-tertiary": "#ffffff",
+                "warm-beige": "#EDE4D5",
+                "on-surface": "#1c1c19",
+                "on-tertiary-fixed-variant": "#474747",
+                "surface": "#fcf9f4",
+                "surface-variant": "#e5e2dd",
+                "primary": "#6e1416",
+                "on-primary-container": "#ffaba4",
+                "surface-container-high": "#ebe8e3",
+                "primary-fixed": "#ffdad7",
+                "ivory-base": "#FDFCF8",
+                "on-primary-fixed-variant": "#832423",
+                "on-secondary-fixed": "#281900",
+                "surface-container-lowest": "#ffffff",
+                "inverse-surface": "#31302d",
+                "secondary-fixed": "#ffdead",
+                "on-error": "#ffffff",
+                "chocolate-red-muted": "#752422",
+                "background": "#fcf9f4",
+                "on-secondary-fixed-variant": "#5a431c",
+                "error": "#ba1a1a",
+                "on-primary-fixed": "#410004",
+                "error-container": "#ffdad6",
+                "on-surface-variant": "#564240",
+                "surface-bright": "#fcf9f4",
+                "on-error-container": "#93000a",
+                "deep-brown": "#2B1A12",
+                "surface-tint": "#a33b38",
+                "tertiary-fixed": "#e4e2e1",
+                "secondary-fixed-dim": "#e3c190",
+                "inverse-primary": "#ffb3ad",
+                "surface-container": "#f0ede9",
+                "primary-container": "#8e2c2a",
+                "on-primary": "#ffffff",
+                "tertiary-fixed-dim": "#c8c6c6",
+                "surface-dim": "#dcdad5",
+                "surface-container-low": "#f6f3ee",
+                "outline": "#8a716f",
+                "secondary-container": "#fedaa7",
+                "on-secondary": "#ffffff",
+                "tertiary-container": "#4e4e4e"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "unit": "8px",
+                "margin-mobile": "16px",
+                "margin-desktop": "48px",
+                "gutter": "24px",
+                "container-max": "1280px"
+            },
+            "fontFamily": {
+                "body-lg": ["Manrope"],
+                "label-sm": ["Manrope"],
+                "display-lg": ["Playfair Display"],
+                "label-lg": ["Manrope"],
+                "headline-md": ["Playfair Display"],
+                "body-md": ["Manrope"],
+                "headline-lg": ["Playfair Display"],
+                "display-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrim-overlay {
+            background: rgba(43, 26, 18, 0.7);
+        }
+        .gold-accent-border {
+            border: 1px solid #BD9E6F;
+        }
+        .text-gold {
+            color: #BD9E6F;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Navigation (gedeelde header) -->
+<nav class="fixed w-full top-0 z-50 bg-ivory-base border-b border-outline-variant/30 transition-all duration-300" id="main-nav">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
+<a aria-label="Rudolf Vermeulen Bonbons" class="flex-shrink-0" href="index.html">
+<img alt="Rudolf Vermeulen Bonbons Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLuDf9VY2x5s7S_RBHSPdH62UkSVdHALBhuZGqxZJLFzck89nCEV64QQUzbbohPJbe3XJ03sykenKCHIWS0xFGH8mEJ7qgVJXUL1BLBmYbt67qOJMw6iW8f1m_vLLS3Tz1X_qUkLKGlc4cGdkmwX7dhUp2hEZmp6WGAFDXPbANhckSq1b6og9dj_APuV-YNpU1X5RuC1hliOT0zU4DLunmAb2rhGOoBeCHOjdUJ3SZYEotRY1VzJE4Ug_NJJ"/>
+</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#producten">Producten</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#workshops">Workshops</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#over-ons">Over ons</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#winkels">Winkels</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<button aria-label="Account" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button aria-label="Winkelwagen" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300 relative" id="cart-btn">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 min-w-[16px] h-4 px-1 bg-secondary text-white text-[10px] leading-4 text-center rounded-full hidden" id="cart-count">0</span>
+</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden p-2 text-on-surface-variant" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-deep-brown/70 z-40 hidden md:hidden backdrop-blur-sm" id="mobile-menu-overlay"></div>
+<div class="fixed top-0 right-0 h-full w-64 bg-ivory-base z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 shadow-2xl border-l border-outline-variant/30" id="mobile-menu">
+<button class="self-end p-2 text-on-surface-variant mb-8" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="flex flex-col gap-6">
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#producten">Producten</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#workshops">Workshops</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#over-ons">Over ons</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#winkels">Winkels</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#contact">Contact</a>
+</div>
+</div>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 w-full h-full">
+<img alt="Volwassenen maken bonbons in het atelier" class="w-full h-full object-cover brightness-75" src="https://lh3.googleusercontent.com/aida/AP1WRLt2DAwfc7Tr0ndKD68ZzCc3SxNi-Ju61y317TOAu7WkcVErRfCiqSS1-uOSswvz34yX_UrqrVHQNodXOhddSYQVZv5FKK8fwBbDph53f8a8LDoaUes2xIQSMsBtIZr5ZWW2z5jIjybWpd5yII7F5IcBBRG2lTnkzkHrAqr8J6m43qfiHuDxT_EZwA54d1G7pCtFLjbyfa3x_kyhTFGt672Z_yyxD0JnNm3KLXwK9AYOzat0ZSPMvF9oujEM"/>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
+<div class="max-w-2xl bg-ivory-base/90 p-12 rounded shadow-2xl border-l-4 border-primary backdrop-blur-sm">
+<a class="inline-flex items-center gap-1 text-secondary font-label-lg text-label-sm uppercase tracking-widest mb-6 hover:text-primary transition-colors" href="index.html#workshops">
+<span class="material-symbols-outlined text-base">arrow_back</span> Terug naar workshops
+</a>
+<h1 class="font-display-lg text-display-lg text-primary mb-6">Workshop bonbons maken voor volwassenen</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                    Onze workshop bonbons maken voor volwassenen is zeer geschikt als familiefeestje, bedrijfsuitje of vrijgezellenfeest. We zorgen voor een warm welkom met een drankje en natuurlijk onze signature chocolade, waarna u zelf aan de slag gaat met het maken van uw eigen bonbons.
+                </p>
+<a class="inline-block bg-primary text-white px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-widest hover:bg-chocolate-red-muted transition-colors" href="#booking">
+                    Ontdek het programma
+                </a>
+</div>
+</div>
+</section>
+<!-- Program Section -->
+<section class="py-24 max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Wat gaan we doen?</h2>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold mt-1">local_cafe</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-1">Ontvangst</h3>
+<p class="text-on-surface-variant font-body-md">Ontvangst met een drankje en een bonbon.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold mt-1">school</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-1">Productkennis</h3>
+<p class="text-on-surface-variant font-body-md">Uitleg over het product chocolade en de herkomst.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold mt-1">cookie</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-1">Maken van massieve chocolaatjes</h3>
+<p class="text-on-surface-variant font-body-md">Leer de basistechnieken van het gieten van vormen.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold mt-1">water_drop</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-1">Bonbons dippen</h3>
+<p class="text-on-surface-variant font-body-md">Zelf uw bonbons dippen in heerlijke chocolade.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold mt-1">draw</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-1">Versieren van zelfgemaakte bonbons</h3>
+<p class="text-on-surface-variant font-body-md">Uw eigen bonbons afwerken en decoreren tot mooie creaties.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2 grid grid-cols-2 gap-4">
+<div class="rounded-xl overflow-hidden shadow-lg transform rotate-[-2deg] gold-accent-border">
+<img alt="Rondleiding door de chocoladefabriek" class="w-full h-full object-cover aspect-[4/5]" src="https://lh3.googleusercontent.com/aida/AP1WRLsXjDOyZxgZ9KwV0-sL3dn8oIz6DBlAJkNIDRO_DKQ_UOjY9n43Bbd3jEoIFttjroRTHS7-hi-mXayzGrnsuW5cZkCFaueqfPR5z6Xj9yku0_trdHsKbZhyOsdJi3ULXl-FNE0g9YqUJggkCabtuPZqL8qp41X-cAhlu7CtJCLQOjMeSEaJGVDflPEU1jb6q0GjkBEkmvKTCyh0CeNvr7hsCOzH7bIZDkQEgHEwR7djYmShXssra-K_fdNh"/>
+</div>
+<div class="mt-12 rounded-xl overflow-hidden shadow-lg transform rotate-[2deg] gold-accent-border">
+<img alt="Decoreren van bonbons" class="w-full h-full object-cover aspect-square" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVrFjfd07bWmh2LknWwaDRtryu4hjugRiDBl79fm9xyWNNaquayK7QgIpU1_BvFeEJwbfp4BUsmwauE77vaZZSMDb1WWlblWpUV5qyW_XmLKMc1El5KIZQnR3L2H0mokHu_TNGwYB0i8qlI0DE7hd5cZ4laji18Rf4IiqNJL44ZJwyJIk9JMBbAuqz4fl-kl99G-IORIB7QIGWZyE_OXSVDhhRyoq3wTzeFOJH3_fnaHfdIa-iG9OvlQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Practical Info & Booking -->
+<section class="bg-warm-beige/30 py-24" id="booking">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pricing Card -->
+<div class="bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">payments</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Kosten</h4>
+<p class="text-display-lg font-display-lg text-on-surface mb-4">€ 25,00</p>
+<p class="text-on-surface-variant font-label-lg uppercase">Per persoon</p>
+</div>
+<!-- Duration Card -->
+<div class="bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">schedule</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Duur</h4>
+<p class="text-display-lg font-display-lg text-on-surface mb-4">1,5 uur</p>
+<p class="text-on-surface-variant font-label-lg uppercase">Volledige ervaring</p>
+</div>
+<!-- Groups Card -->
+<div class="bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">groups</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Groepen</h4>
+<div class="space-y-2">
+<p class="text-on-surface font-body-md font-semibold">Ma - Vrij: min. 7 personen</p>
+<p class="text-on-surface font-body-md font-semibold">Zat: min. 10 personen</p>
+</div>
+</div>
+</div>
+<!-- Restrictions & Booking Footer -->
+<div class="mt-16 bg-deep-brown p-12 rounded-xl text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-8xl">calendar_month</span>
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h3 class="font-headline-lg text-headline-lg mb-4">Plan uw workshop</h3>
+<p class="font-body-lg mb-4 opacity-90 leading-relaxed">
+                            Aanmelden is alleen per groep mogelijk. Met minder personen is het plannen van een workshop helaas niet mogelijk.
+                        </p>
+<p class="font-body-md opacity-80 leading-relaxed italic">
+                            Let op: In de 3 weken voor Pasen, in de zomervakantie (regio Zuid) en in de maanden november en december zijn er geen workshops mogelijk.
+                        </p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="flex items-center justify-center gap-4 bg-primary text-white py-5 rounded-lg font-label-lg text-headline-md hover:scale-[1.02] transition-transform" href="tel:0402212360">
+<span class="material-symbols-outlined">call</span>
+                            Bel: 040 22 123 60
+                        </a>
+<p class="text-center font-label-sm opacity-60">Maandag t/m vrijdag bereikbaar tijdens kantooruren</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 text-center max-w-2xl mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Altijd als eerste de nieuwste workshops?</h2>
+<p class="font-body-md text-on-surface-variant mb-8">Schrijf je in voor onze nieuwsbrief en ontvang inspiratie, chocoladetips en exclusieve updates direct in je mailbox.</p>
+<form class="flex flex-col sm:flex-row gap-2" id="newsletter-form" novalidate>
+<input class="flex-grow p-4 border-0 bg-white shadow-sm rounded-lg focus:ring-2 focus:ring-primary" placeholder="E-mailadres" type="email" required/>
+<button class="bg-secondary text-white px-8 py-4 rounded-lg font-label-lg uppercase tracking-widest hover:bg-on-secondary-container transition-colors" type="submit">Aanmelden</button>
+</form>
+<p class="mt-4 text-secondary font-body-md hidden" id="newsletter-status" role="status" aria-live="polite"></p>
+</section>
+</main>
+<!-- Footer (gedeelde footer) -->
+<footer class="bg-surface-container-highest border-t border-outline-variant/20 py-16">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<h3 class="font-headline-md text-primary mb-4">Rudolf Vermeulen Bonbons</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Drie generaties meesterschap in de kunst van de chocolaterie. Elke dag opnieuw met passie bereid.</p>
+<p class="font-label-sm text-secondary">© 2024 Rudolf Vermeulen Bonbons.<br/>Artisanaal &amp; Exclusief sinds 1939.</p>
+</div>
+<div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">Navigatie</h4>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#producten">Producten</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#workshops">Workshops</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#winkels">Onze Boutiques</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">Informatie</h4>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="ingredienten-allergenen.html">Kwaliteitsbelofte</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="ingredienten-allergenen.html">Allergenen</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#over-ons">Historie</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">Juridisch</h4>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="#">Algemene Voorwaarden</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="#">Privacybeleid</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // ---- Navbar: schaduw bij scrollen ----
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('shadow-md', 'bg-ivory-base/95', 'backdrop-blur-md');
+            nav.classList.remove('bg-ivory-base');
+        } else {
+            nav.classList.remove('shadow-md', 'bg-ivory-base/95', 'backdrop-blur-md');
+            nav.classList.add('bg-ivory-base');
+        }
+    });
+
+    // ---- Mobiel menu ----
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    function toggleMenu() {
+        const isOpen = !mobileMenu.classList.contains('translate-x-full');
+        if (isOpen) {
+            mobileMenu.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        } else {
+            mobileMenu.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+    // Nieuwsbrief-formulier
+    const nlForm = document.getElementById('newsletter-form');
+    const nlStatus = document.getElementById('newsletter-status');
+    nlForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!nlForm.checkValidity()) {
+            nlForm.reportValidity();
+            return;
+        }
+        nlStatus.textContent = 'Bedankt voor uw aanmelding! U ontvangt binnenkort onze nieuwsbrief.';
+        nlStatus.classList.remove('hidden');
+        nlForm.reset();
+    });
+</script>
+</body></html>

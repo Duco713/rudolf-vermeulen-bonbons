@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ingrediënten &amp; Allergenen | Rudolf Vermeulen Bonbons</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#410004",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fedaa7",
+                        "deep-brown": "#2B1A12",
+                        "outline-variant": "#ddc0bd",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#373737",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "primary-fixed-dim": "#ffb3ad",
+                        "surface-tint": "#a33b38",
+                        "surface-dim": "#dcdad5",
+                        "secondary": "#745a31",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e5e2dd",
+                        "on-primary-container": "#ffaba4",
+                        "surface-container-high": "#ebe8e3",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-fixed": "#ffdad7",
+                        "on-primary-fixed-variant": "#832423",
+                        "on-tertiary-container": "#c1c0bf",
+                        "on-secondary-fixed": "#281900",
+                        "on-surface": "#1c1c19",
+                        "surface-bright": "#fcf9f4",
+                        "on-secondary-fixed-variant": "#5a431c",
+                        "chocolate-red-muted": "#752422",
+                        "on-secondary-container": "#785e35",
+                        "tertiary-container": "#4e4e4e",
+                        "error": "#ba1a1a",
+                        "ivory-base": "#FDFCF8",
+                        "surface-container-highest": "#e5e2dd",
+                        "tertiary-fixed": "#e4e2e1",
+                        "inverse-surface": "#31302d",
+                        "inverse-on-surface": "#f3f0eb",
+                        "surface": "#fcf9f4",
+                        "warm-beige": "#EDE4D5",
+                        "inverse-primary": "#ffb3ad",
+                        "background": "#fcf9f4",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "outline": "#8a716f",
+                        "secondary-fixed": "#ffdead",
+                        "on-surface-variant": "#564240",
+                        "primary": "#6e1416",
+                        "surface-container-low": "#f6f3ee",
+                        "primary-container": "#8e2c2a",
+                        "surface-container": "#f0ede9",
+                        "secondary-fixed-dim": "#e3c190"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-lg": ["Manrope"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            background-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png");
+            opacity: 0.03;
+        }
+        .luxury-border {
+            border: 1px solid #BD9E6F;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-deep-brown selection:bg-secondary/30">
+<!-- Navigation (gedeelde header) -->
+<nav class="fixed w-full top-0 z-50 bg-ivory-base border-b border-outline-variant/30 transition-all duration-300" id="main-nav">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
+<a aria-label="Rudolf Vermeulen Bonbons" class="flex-shrink-0" href="index.html">
+<img alt="Rudolf Vermeulen Bonbons Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLuDf9VY2x5s7S_RBHSPdH62UkSVdHALBhuZGqxZJLFzck89nCEV64QQUzbbohPJbe3XJ03sykenKCHIWS0xFGH8mEJ7qgVJXUL1BLBmYbt67qOJMw6iW8f1m_vLLS3Tz1X_qUkLKGlc4cGdkmwX7dhUp2hEZmp6WGAFDXPbANhckSq1b6og9dj_APuV-YNpU1X5RuC1hliOT0zU4DLunmAb2rhGOoBeCHOjdUJ3SZYEotRY1VzJE4Ug_NJJ"/>
+</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#producten">Producten</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#workshops">Workshops</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#over-ons">Over ons</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#winkels">Winkels</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<button aria-label="Account" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button aria-label="Winkelwagen" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300 relative" id="cart-btn">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 min-w-[16px] h-4 px-1 bg-secondary text-white text-[10px] leading-4 text-center rounded-full hidden" id="cart-count">0</span>
+</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden p-2 text-on-surface-variant" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-deep-brown/70 z-40 hidden md:hidden backdrop-blur-sm" id="mobile-menu-overlay"></div>
+<div class="fixed top-0 right-0 h-full w-64 bg-ivory-base z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6 shadow-2xl border-l border-outline-variant/30" id="mobile-menu">
+<button class="self-end p-2 text-on-surface-variant mb-8" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="flex flex-col gap-6">
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#producten">Producten</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#workshops">Workshops</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#over-ons">Over ons</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#winkels">Winkels</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="index.html#contact">Contact</a>
+</div>
+</div>
+<main class="relative pt-20">
+<div class="grain-overlay absolute inset-0 pointer-events-none"></div>
+<!-- Hero Section -->
+<section class="py-24 text-center max-w-4xl mx-auto px-margin-mobile md:px-0">
+<a class="inline-flex items-center gap-1 text-secondary font-label-lg text-label-sm uppercase tracking-widest mb-6 hover:text-primary transition-colors" href="index.html#ingredienten">
+<span class="material-symbols-outlined text-base">arrow_back</span> Terug naar home
+</a>
+<span class="font-label-lg text-label-lg text-secondary uppercase tracking-[0.2em] mb-4 block">Kwaliteit &amp; Transparantie</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-primary mb-6">Ingrediënten &amp; Allergenen</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
+                Bij Rudolf Vermeulen geloven we dat ware luxe begint bij de puurheid van ingrediënten. Hieronder vindt u een gedetailleerd overzicht van onze basischocolade en mogelijke allergenen.
+            </p>
+</section>
+<!-- Product Grid - Chocolate Types -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pure Chocolade Card -->
+<div class="fade-in-section bg-warm-beige p-12 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-label-sm text-label-sm text-secondary bg-surface/50 px-3 py-1 rounded-full">Vegan Optie</span>
+</div>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Pure Chocolade</h3>
+<p class="font-label-sm text-label-sm text-secondary mb-6 italic">Cacao min. 53,8%</p>
+<div class="space-y-4 mb-8">
+<div>
+<p class="font-label-lg text-label-lg text-on-surface mb-1">Ingrediënten</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Cacaomassa, suiker, cacaoboter, vanille, glucosestroop.</p>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary mb-1">Allergenen</p>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Emulgator: soja lecithine (E322).</p>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30">
+<span class="font-body-md text-body-md text-secondary group-hover:translate-x-2 transition-transform inline-block">Artisanaal bereid →</span>
+</div>
+</div>
+<!-- Melk Chocolade Card -->
+<div class="fade-in-section bg-white luxury-border p-12 rounded-lg shadow-sm group">
+<div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">opacity</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Melk Chocolade</h3>
+<p class="font-label-sm text-label-sm text-secondary mb-6 italic">Cacao min. 30,1%</p>
+<div class="space-y-4 mb-8">
+<div>
+<p class="font-label-lg text-label-lg text-on-surface mb-1">Ingrediënten</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Cacaomassa, suiker, cacaoboter, weipoeder, volle melkpoeder, vanille, glucosestroop.</p>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary mb-1">Allergenen</p>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Emulgator: soja lecithine (E322).</p>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30">
+<span class="font-body-md text-body-md text-secondary group-hover:translate-x-2 transition-transform inline-block">Zacht &amp; Romig →</span>
+</div>
+</div>
+<!-- Witte Chocolade Card -->
+<div class="fade-in-section bg-surface-container-high p-12 rounded-lg group">
+<div class="w-16 h-16 bg-on-surface-variant/10 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Witte Chocolade</h3>
+<p class="font-label-sm text-label-sm text-secondary mb-6 italic">Cacao min. 27,6%</p>
+<div class="space-y-4 mb-8">
+<div>
+<p class="font-label-lg text-label-lg text-on-surface mb-1">Ingrediënten</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Cacaomassa, suiker, cacaoboter, weipoeder, vanille, glucosestroop.</p>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary mb-1">Allergenen</p>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Emulgator: soja lecithine (E322).</p>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30">
+<span class="font-body-md text-body-md text-secondary group-hover:translate-x-2 transition-transform inline-block">Fluweelzacht →</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Break Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="h-[500px] rounded-3xl overflow-hidden relative shadow-xl">
+<img alt="Ambachtelijke chocolade bereiding" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkOlfXLkt-1fLBsOlPCid_uSh-AJsPOq_jw2exeUhQ2LcOBsuwfJCb-5kZMAzNlIB5ylHc_c7L3YpgQaPPtXHijvmt6FIXFT26EAQpaZj9LC1PxYTSczJUZKQuBMMdgh706AEC3E0jlAZmj2PAaxfZz4CfY4bwntT3rrYYXRc3EajzNAWtaxnXW6S8r7YtVp3PCzzqiVWXg0VM9j8rX1ZEVtgDm8ABKeNZvfGs5TQa_L8i0WG6FmaujA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-brown/60 to-transparent"></div>
+<div class="absolute bottom-12 left-12 text-white">
+<h2 class="font-headline-lg text-headline-lg mb-2">Ambacht in elke laag</h2>
+<p class="font-body-lg text-body-lg opacity-90">Sourcing van de fijnste cacaobonen wereldwijd.</p>
+</div>
+</div>
+</section>
+<!-- Allergenen Overzicht Section -->
+<section class="bg-ivory-base py-24 mb-24" id="allergenen">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center max-w-3xl mx-auto mb-10">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Allergenen per product</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Onze bonbons worden met de grootste zorg bereid in ons atelier. Ondanks alle voorzorgsmaatregelen kunnen sporen van diverse ingrediënten aanwezig zijn. Hieronder vindt u per product een volledig overzicht.
+                    </p>
+</div>
+<!-- Legenda + zoeken -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+<div class="flex flex-wrap items-center gap-6">
+<span class="flex items-center gap-2 font-body-md text-on-surface-variant"><span class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">X</span> Ingrediënt aanwezig</span>
+<span class="flex items-center gap-2 font-body-md text-on-surface-variant"><span class="w-7 h-7 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-sm">S</span> Sporen van</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 rounded-full border border-outline-variant/40 bg-white focus:ring-2 focus:ring-primary w-full md:w-72" id="allergen-search" placeholder="Zoek een product…" type="search"/>
+</div>
+</div>
+<div class="overflow-x-auto rounded-xl luxury-border shadow-sm">
+<table class="w-full border-collapse text-left min-w-[980px]">
+<thead>
+<tr class="bg-warm-beige" id="allergen-head-row">
+<th class="sticky left-0 bg-warm-beige z-10 p-3 font-label-lg text-label-lg text-on-surface min-w-[240px]">Product</th>
+</tr>
+</thead>
+<tbody id="allergen-body"></tbody>
+</table>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-4" id="allergen-empty" hidden>Geen product gevonden.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-4">Bijgewerkt: 04-10-2025. Deze lijst is met zorg samengesteld; raadpleeg bij twijfel altijd onze medewerkers.</p>
+</div>
+</section>
+<!-- CTA / Dietary Question Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="bg-primary-container p-12 md:p-24 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')] opacity-10"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg text-white mb-6">Specifieke dieetwensen?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-12 max-w-xl mx-auto">
+                        Heeft u een specifieke allergie of volgt u een bijzonder dieet? Onze meester-chocolatier denkt graag met u mee voor een passend assortiment.
+                    </p>
+<div class="flex flex-col md:flex-row gap-gutter justify-center items-center">
+<a class="px-8 py-4 bg-white text-primary font-label-lg text-label-lg rounded-full hover:bg-secondary-container transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5" href="mailto:info@rudolfvermeulenbonbons.nl">
+<span class="material-symbols-outlined">mail</span>
+                            Stuur een email
+                        </a>
+<a class="px-8 py-4 border border-white text-white font-label-lg text-label-lg rounded-full hover:bg-white/10 transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5" href="tel:0402212360">
+<span class="material-symbols-outlined">call</span>
+                            040 221 2360
+                        </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (gedeelde footer) -->
+<footer class="bg-surface-container-highest border-t border-outline-variant/20 py-16">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<h3 class="font-headline-md text-primary mb-4">Rudolf Vermeulen Bonbons</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Drie generaties meesterschap in de kunst van de chocolaterie. Elke dag opnieuw met passie bereid.</p>
+<p class="font-label-sm text-secondary">© 2024 Rudolf Vermeulen Bonbons.<br/>Artisanaal &amp; Exclusief sinds 1939.</p>
+</div>
+<div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">Navigatie</h4>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#producten">Producten</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#workshops">Workshops</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#winkels">Onze Boutiques</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">Informatie</h4>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="ingredienten-allergenen.html">Kwaliteitsbelofte</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="ingredienten-allergenen.html">Allergenen</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="index.html#over-ons">Historie</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">Juridisch</h4>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="#">Algemene Voorwaarden</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all" href="#">Privacybeleid</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ---- Navbar: schaduw bij scrollen ----
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md', 'bg-ivory-base/95', 'backdrop-blur-md');
+                nav.classList.remove('bg-ivory-base');
+            } else {
+                nav.classList.remove('shadow-md', 'bg-ivory-base/95', 'backdrop-blur-md');
+                nav.classList.add('bg-ivory-base');
+            }
+        });
+
+        // ---- Mobiel menu ----
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (isOpen) {
+                mobileMenu.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // ---- Allergenentabel ----
+        const ALLERGEN_COLS = [
+            ['ei', 'Ei'], ['gluten', 'Gluten'], ['lupine', 'Lupine'], ['melk', 'Melk'],
+            ['mosterd', 'Mosterd'], ['noten', 'Noten'], ['pinda', "Pinda's"], ['schaal', 'Schaaldieren'],
+            ['selderij', 'Selderij'], ['sesam', 'Sesamzaad'], ['soja', 'Soja'], ['vis', 'Vis'],
+            ['week', 'Weekdieren'], ['sulfiet', 'Sulfiet (zwaveldioxide)']
+        ];
+        const ALLERGEN_DATA = [
+            ['Chocolade Puur', { melk: 'S', noten: 'S', soja: 'X' }],
+            ['Chocolade Melk', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Chocolade Wit', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Chocolade letter massief puur', { melk: 'S', noten: 'S', soja: 'X' }],
+            ['Chocolade letter massief melk', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Chocolade letter massief wit', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Chocolade letter gevuld puur', { melk: 'S', noten: 'X', soja: 'X' }],
+            ['Chocolade letter gevuld melk', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Chocolade letter gevuld wit', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Krokantblaadjes', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Marsepein', { noten: 'X' }],
+            ['Boomschors', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Viola', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Marniertje', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Wit chocolade rum', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Wit / melk flikken muisjes', { gluten: 'X', melk: 'X', noten: 'S', soja: 'X' }],
+            ['Wit / melk musket', { gluten: 'X', melk: 'X', noten: 'S', soja: 'X' }],
+            ['Puur flikken muisjes', { gluten: 'X', melk: 'X', noten: 'S', soja: 'X' }],
+            ['Puur flikken musket', { gluten: 'X', melk: 'X', noten: 'S', soja: 'X' }],
+            ['Accra / Brioni', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Cafe Kirsch', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Majorca', { ei: 'X', melk: 'X', noten: 'S', soja: 'X' }],
+            ['Aruba', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Paté Suisse', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Mocca Melk', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Nois deux', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Moccatientje / Moccatino', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Geisha', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Persianer', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Mocca Puur', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Advocaat', { ei: 'X', melk: 'S', noten: 'X', soja: 'X' }],
+            ['Chocolade caramel', { ei: 'X', melk: 'X', noten: 'S', soja: 'X' }],
+            ['Romeo', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Feuillage', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Toast', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Messina', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Chocolade Kirsch', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Cointreax', { ei: 'X', melk: 'X', noten: 'X', soja: 'X' }],
+            ['Hazelnoot speciaal', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Henriette', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Meran', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Kaneel', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Julia', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Branta', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Ananas', { melk: 'S', noten: 'S', soja: 'X' }],
+            ['Robrandy', { melk: 'S', noten: 'S', soja: 'X', sulfiet: 'X' }],
+            ['Chalet', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Hazelino', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Pistache', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Minaret', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Chocolade mousse melk', { melk: 'X', soja: 'X' }],
+            ['Chocolade mousse wit', { melk: 'X', soja: 'X' }],
+            ['Chocolade mousse donker', { melk: 'X', soja: 'X' }],
+            ['Hagelslag / Flakes donker', { melk: 'X', soja: 'X' }],
+            ['Hagelslag melk', { melk: 'X', soja: 'X' }],
+            ['Eikeltjes suiker, zacht noot', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Eikeltjes musket, zachte noot', { gluten: 'X', melk: 'X', noten: 'X', soja: 'X' }],
+            ['Gevulde eitjes: zachte noot', { melk: 'X', noten: 'X', soja: 'X' }],
+            ['Gevulde eitjes: advocaat', { ei: 'X', melk: 'S', noten: 'S', soja: 'X' }],
+            ['Gevulde eitjes: mocca', { melk: 'X', noten: 'S', soja: 'X' }],
+            ['Gevulde eitjes: sinaas', { melk: 'X', noten: 'S', soja: 'X' }]
+        ];
+
+        (function renderAllergenTable() {
+            const headRow = document.getElementById('allergen-head-row');
+            const body = document.getElementById('allergen-body');
+            const emptyMsg = document.getElementById('allergen-empty');
+            if (!headRow || !body) return;
+
+            // Kolomkoppen
+            ALLERGEN_COLS.forEach(([, label]) => {
+                const th = document.createElement('th');
+                th.className = 'p-3 text-center font-label-sm text-label-sm text-on-surface align-bottom';
+                th.textContent = label;
+                headRow.appendChild(th);
+            });
+
+            // Rijen
+            ALLERGEN_DATA.forEach(([name, marks]) => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-t border-outline-variant/20 hover:bg-warm-beige/30 transition-colors';
+                tr.dataset.name = name.toLowerCase();
+
+                const nameTd = document.createElement('td');
+                nameTd.className = 'sticky left-0 bg-white z-10 p-3 font-body-md text-on-surface whitespace-nowrap';
+                nameTd.textContent = name;
+                tr.appendChild(nameTd);
+
+                ALLERGEN_COLS.forEach(([key]) => {
+                    const td = document.createElement('td');
+                    td.className = 'p-3 text-center';
+                    const val = marks[key];
+                    if (val === 'X') {
+                        td.innerHTML = '<span class="inline-flex w-7 h-7 rounded-full bg-primary text-white items-center justify-center font-bold text-sm">X</span>';
+                    } else if (val === 'S') {
+                        td.innerHTML = '<span class="inline-flex w-7 h-7 rounded-full bg-secondary/20 text-secondary items-center justify-center font-bold text-sm">S</span>';
+                    }
+                    tr.appendChild(td);
+                });
+                body.appendChild(tr);
+            });
+
+            // Zoekfilter
+            const search = document.getElementById('allergen-search');
+            search.addEventListener('input', () => {
+                const q = search.value.trim().toLowerCase();
+                let visible = 0;
+                body.querySelectorAll('tr').forEach(tr => {
+                    const match = tr.dataset.name.includes(q);
+                    tr.hidden = !match;
+                    if (match) visible++;
+                });
+                emptyMsg.hidden = visible !== 0;
+            });
+        })();
+    </script>
+</body></html>
