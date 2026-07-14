@@ -245,13 +245,6 @@
                 Van de intense diepte van pure cacao tot de fluweelzachte omhelzing van witte chocolade. Ontdek smaken die met uiterste precisie zijn samengesteld.
             </p>
 </div>
-<div class="flex overflow-x-auto pb-8 mb-12 gap-4 hide-scrollbar justify-start md:justify-center" id="product-filters">
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-warm-beige text-deep-brown font-label-lg border border-secondary/20 transition-all" data-filter="alle" aria-pressed="true">Alle Creaties</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="bonbons" aria-pressed="false">Bonbons</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="pasen" aria-pressed="false">Pasen</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="sinterklaas" aria-pressed="false">Sinterklaas</button>
-<button class="filter-btn whitespace-nowrap px-6 py-2 rounded-full bg-transparent text-on-surface-variant font-label-lg border border-transparent hover:bg-surface-container transition-all" data-filter="kerst" aria-pressed="false">Kerst</button>
-</div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="product-grid">
 <!-- Bonbons van Rudolf Vermeulen -->
 <article class="product-card lg:col-span-2 group relative bg-ivory-base rounded-xl overflow-hidden border border-secondary/30 flex flex-col md:flex-row transition-all duration-500 hover:shadow-xl" data-category="bonbons">
@@ -686,34 +679,6 @@
             toast.classList.add('opacity-0', 'translate-y-4');
         }, 2600);
     }
-
-    // ---- Productfilters ----
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
-
-    function setActiveFilter(btn) {
-        filterButtons.forEach(b => {
-            const active = b === btn;
-            b.setAttribute('aria-pressed', String(active));
-            b.classList.toggle('bg-warm-beige', active);
-            b.classList.toggle('text-deep-brown', active);
-            b.classList.toggle('border-secondary/20', active);
-            b.classList.toggle('bg-transparent', !active);
-            b.classList.toggle('text-on-surface-variant', !active);
-            b.classList.toggle('border-transparent', !active);
-        });
-    }
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
-            setActiveFilter(btn);
-            productCards.forEach(card => {
-                const show = filter === 'alle' || card.dataset.category === filter;
-                card.classList.toggle('hidden', !show);
-            });
-        });
-    });
 
     // ---- Workshop knoppen ----
     document.querySelectorAll('.workshop-info').forEach(btn => {
