@@ -128,6 +128,7 @@
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#over-ons">Over ons</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#producten">Producten</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#workshops">Workshops</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#ingredienten">Ingrediënten</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#reviews">Reviews</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#winkels">Winkels</a>
 <a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
@@ -148,6 +149,7 @@
 <a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#over-ons">Over ons</a>
 <a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#producten">Producten</a>
 <a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#workshops">Workshops</a>
+<a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#ingredienten">Ingrediënten</a>
 <a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#reviews">Reviews</a>
 <a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#winkels">Winkels</a>
 <a class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors mobile-link" href="#contact">Contact</a>
@@ -709,23 +711,24 @@
 
     // ---- Actieve navigatielink markeren tijdens scrollen ----
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = ['producten', 'workshops', 'over-ons', 'winkels', 'contact']
+    const spySections = ['over-ons', 'producten', 'workshops', 'ingredienten', 'reviews', 'winkels', 'contact']
         .map(id => document.getElementById(id))
         .filter(Boolean);
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach(link => {
-                    const active = link.getAttribute('href') === `#${id}`;
-                    link.classList.toggle('text-primary', active);
-                    link.classList.toggle('text-on-surface-variant', !active);
-                });
-            }
+    function updateActiveLink() {
+        const marker = window.innerHeight * 0.35;
+        let current = null;
+        spySections.forEach(sec => {
+            if (sec.getBoundingClientRect().top <= marker) current = sec.id;
         });
-    }, { rootMargin: '-40% 0px -55% 0px' });
+        navLinks.forEach(link => {
+            const active = current !== null && link.getAttribute('href') === `#${current}`;
+            link.classList.toggle('text-primary', active);
+            link.classList.toggle('text-on-surface-variant', !active);
+        });
+    }
 
-    sections.forEach(section => observer.observe(section));
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 </script>
 </body></html>
