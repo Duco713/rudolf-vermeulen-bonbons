@@ -113,9 +113,30 @@
         .text-gold {
             color: #BD9E6F;
         }
+    
+        /* ---- Animaties ---- */
+        @media (prefers-reduced-motion: no-preference) {
+            .js-anim .hero-zoom { animation: kenburns 22s ease-out forwards; transform-origin: center; }
+            @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
+            .js-anim .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease-out, transform .7s ease-out; }
+            .js-anim .reveal.is-visible { opacity: 1; transform: none; }
+            .js-anim .hero-enter { opacity: 0; transform: translateY(20px); animation: heroIn .8s ease-out forwards; }
+            .js-anim .hero-enter:nth-child(1){ animation-delay: .05s }
+            .js-anim .hero-enter:nth-child(2){ animation-delay: .2s }
+            .js-anim .hero-enter:nth-child(3){ animation-delay: .35s }
+            .js-anim .hero-enter:nth-child(4){ animation-delay: .5s }
+            @keyframes heroIn { to { opacity: 1; transform: none; } }
+        }
+        .nav-link { position: relative; }
+        .nav-link::after { content:""; position:absolute; left:0; bottom:-4px; height:2px; width:100%; background-color:#745a31; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+        .nav-link:hover::after { transform:scaleX(1); }
+        .btn-shine { position:relative; overflow:hidden; }
+        .btn-shine::after { content:""; position:absolute; top:0; left:-75%; width:50%; height:100%; background:linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent); transform:skewX(-20deg); transition:left .6s ease; pointer-events:none; }
+        .btn-shine:hover::after { left:125%; }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<script>document.documentElement.classList.add("js-anim")</script>
 <!-- Navigation (gedeelde header) -->
 <nav class="fixed w-full top-0 z-50 bg-ivory-base border-b border-outline-variant/30 transition-all duration-300" id="main-nav">
 <div class="relative flex items-center justify-between md:justify-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
@@ -124,13 +145,13 @@
 </a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center justify-center gap-8">
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#over-ons">Over ons</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#producten">Producten</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#workshops">Workshops</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#ingredienten">Ingrediënten</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#reviews">Reviews</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#winkels">Winkels</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#over-ons">Over ons</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#producten">Producten</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#workshops">Workshops</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#ingredienten">Ingrediënten</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#reviews">Reviews</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#winkels">Winkels</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
 </div>
 <!-- Mobile Menu Toggle -->
 <button aria-label="Menu" class="md:hidden p-2 text-on-surface-variant" id="mobile-menu-btn">
@@ -158,18 +179,18 @@
 <!-- Hero Section -->
 <section class="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
 <div class="absolute inset-0 w-full h-full">
-<img alt="Volwassenen maken luxe bonbons in het atelier" class="w-full h-full object-cover brightness-75" src="Images/workshop-luxe.png"/>
+<img alt="Volwassenen maken luxe bonbons in het atelier" class="hero-zoom w-full h-full object-cover brightness-75" src="Images/workshop-luxe.png"/>
 </div>
 <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
 <div class="max-w-2xl bg-ivory-base/90 p-12 rounded shadow-2xl border-l-4 border-primary backdrop-blur-sm">
-<a class="inline-flex items-center gap-1 text-secondary font-label-lg text-label-sm uppercase tracking-widest mb-6 hover:text-primary transition-colors" href="index.html#workshops">
+<a class="hero-enter inline-flex items-center gap-1 text-secondary font-label-lg text-label-sm uppercase tracking-widest mb-6 hover:text-primary transition-colors" href="index.html#workshops">
 <span class="material-symbols-outlined text-base">arrow_back</span> Terug naar workshops
 </a>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Luxe workshop bonbons maken voor volwassenen</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+<h1 class="hero-enter font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Luxe workshop bonbons maken voor volwassenen</h1>
+<p class="hero-enter font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
                     Onze luxe workshop combineert het mooiste wat chocolade te bieden heeft. We zorgen voor een warm welkom met een drankje en een bonbon, waarna u een inspirerende video over de bereiding van chocolade bekijkt. Vervolgens gaat u zelf uitgebreid aan de slag met het maken van uw eigen bonbons en creaties.
                 </p>
-<a class="inline-block bg-primary text-white px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-widest hover:bg-chocolate-red-muted transition-colors" href="#booking">
+<a class="hero-enter btn-shine inline-block bg-primary text-white px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-widest hover:bg-chocolate-red-muted transition-colors" href="#booking">
                     Ontdek het programma
                 </a>
 </div>
@@ -177,7 +198,7 @@
 </section>
 <!-- Program Section -->
 <section class="py-24 max-w-container-max mx-auto px-margin-desktop">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="reveal grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
 <div class="lg:col-span-5 order-2 lg:order-1">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Wat gaan we doen?</h2>
 <ul class="space-y-6">
@@ -247,21 +268,21 @@
 <div class="max-w-container-max mx-auto px-margin-desktop">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Pricing Card -->
-<div class="bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
+<div class="reveal bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
 <span class="material-symbols-outlined text-primary text-4xl mb-4">payments</span>
 <h4 class="font-headline-md text-headline-md text-primary mb-2">Kosten</h4>
 <p class="text-display-lg font-display-lg text-on-surface mb-4">€ 35,00</p>
 <p class="text-on-surface-variant font-label-lg uppercase">Per persoon</p>
 </div>
 <!-- Duration Card -->
-<div class="bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
+<div class="reveal bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
 <span class="material-symbols-outlined text-primary text-4xl mb-4">schedule</span>
 <h4 class="font-headline-md text-headline-md text-primary mb-2">Duur</h4>
 <p class="text-display-lg font-display-lg text-on-surface mb-4">3 uur</p>
 <p class="text-on-surface-variant font-label-lg uppercase">Volledige ervaring</p>
 </div>
 <!-- Groups Card -->
-<div class="bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
+<div class="reveal bg-white p-10 rounded-xl shadow-sm gold-accent-border flex flex-col items-center text-center">
 <span class="material-symbols-outlined text-primary text-4xl mb-4">groups</span>
 <h4 class="font-headline-md text-headline-md text-primary mb-2">Groepen</h4>
 <div class="space-y-2">
@@ -271,7 +292,7 @@
 </div>
 </div>
 <!-- Restrictions & Booking Footer -->
-<div class="mt-16 bg-deep-brown p-12 rounded-xl text-white relative overflow-hidden">
+<div class="reveal mt-16 bg-deep-brown p-12 rounded-xl text-white relative overflow-hidden">
 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div>
 <h3 class="font-headline-lg text-headline-lg mb-4">Plan uw workshop</h3>
@@ -283,7 +304,7 @@
                         </p>
 </div>
 <div class="flex flex-col gap-4">
-<a class="flex items-center justify-center gap-4 bg-primary text-white py-5 rounded-lg font-label-lg text-headline-md hover:scale-[1.02] transition-transform" href="tel:0402212360">
+<a class="btn-shine flex items-center justify-center gap-4 bg-primary text-white py-5 rounded-lg font-label-lg text-headline-md hover:scale-[1.02] transition-transform" href="tel:0402212360">
 <span class="material-symbols-outlined">call</span>
                             Bel: 040 22 123 60
                         </a>
@@ -294,12 +315,12 @@
 </div>
 </section>
 <!-- Newsletter Section -->
-<section class="py-24 text-center max-w-2xl mx-auto px-margin-desktop">
+<section class="reveal py-24 text-center max-w-2xl mx-auto px-margin-desktop">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Altijd als eerste de nieuwste workshops?</h2>
 <p class="font-body-md text-on-surface-variant mb-8">Schrijf je in voor onze nieuwsbrief en ontvang inspiratie, chocoladetips en exclusieve updates direct in je mailbox.</p>
 <form class="flex flex-col sm:flex-row gap-2" id="newsletter-form" novalidate>
 <input class="flex-grow p-4 border-0 bg-white shadow-sm rounded-lg focus:ring-2 focus:ring-primary" placeholder="E-mailadres" type="email" required/>
-<button class="bg-secondary text-white px-8 py-4 rounded-lg font-label-lg uppercase tracking-widest hover:bg-on-secondary-container transition-colors" type="submit">Aanmelden</button>
+<button class="btn-shine bg-secondary text-white px-8 py-4 rounded-lg font-label-lg uppercase tracking-widest hover:bg-on-secondary-container transition-colors" type="submit">Aanmelden</button>
 </form>
 <p class="mt-4 text-secondary font-body-md hidden" id="newsletter-status" role="status" aria-live="polite"></p>
 </section>
@@ -390,6 +411,17 @@
         nlStatus.textContent = 'Bedankt voor uw aanmelding! U ontvangt binnenkort onze nieuwsbrief.';
         nlStatus.classList.remove('hidden');
         nlForm.reset();
+    });
+
+    // ---- Scroll-reveal ----
+    var revObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){ if (entry.isIntersecting){ entry.target.classList.add("is-visible"); revObserver.unobserve(entry.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(function(el){
+        var sibs = Array.prototype.filter.call(el.parentElement.children, function(c){ return c.classList.contains("reveal"); });
+        var idx = sibs.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = (idx * 90) + "ms";
+        revObserver.observe(el);
     });
 </script>
 </body></html>

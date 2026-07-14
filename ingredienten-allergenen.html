@@ -121,9 +121,30 @@
             opacity: 1;
             transform: translateY(0);
         }
+    
+        /* ---- Animaties ---- */
+        @media (prefers-reduced-motion: no-preference) {
+            .js-anim .hero-zoom { animation: kenburns 22s ease-out forwards; transform-origin: center; }
+            @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
+            .js-anim .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease-out, transform .7s ease-out; }
+            .js-anim .reveal.is-visible { opacity: 1; transform: none; }
+            .js-anim .hero-enter { opacity: 0; transform: translateY(20px); animation: heroIn .8s ease-out forwards; }
+            .js-anim .hero-enter:nth-child(1){ animation-delay: .05s }
+            .js-anim .hero-enter:nth-child(2){ animation-delay: .2s }
+            .js-anim .hero-enter:nth-child(3){ animation-delay: .35s }
+            .js-anim .hero-enter:nth-child(4){ animation-delay: .5s }
+            @keyframes heroIn { to { opacity: 1; transform: none; } }
+        }
+        .nav-link { position: relative; }
+        .nav-link::after { content:""; position:absolute; left:0; bottom:-4px; height:2px; width:100%; background-color:#745a31; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+        .nav-link:hover::after { transform:scaleX(1); }
+        .btn-shine { position:relative; overflow:hidden; }
+        .btn-shine::after { content:""; position:absolute; top:0; left:-75%; width:50%; height:100%; background:linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent); transform:skewX(-20deg); transition:left .6s ease; pointer-events:none; }
+        .btn-shine:hover::after { left:125%; }
     </style>
 </head>
 <body class="bg-background text-deep-brown selection:bg-secondary/30">
+<script>document.documentElement.classList.add("js-anim")</script>
 <!-- Navigation (gedeelde header) -->
 <nav class="fixed w-full top-0 z-50 bg-ivory-base border-b border-outline-variant/30 transition-all duration-300" id="main-nav">
 <div class="relative flex items-center justify-between md:justify-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
@@ -132,13 +153,13 @@
 </a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center justify-center gap-8">
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#over-ons">Over ons</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#producten">Producten</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#workshops">Workshops</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#ingredienten">Ingrediënten</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#reviews">Reviews</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#winkels">Winkels</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#over-ons">Over ons</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#producten">Producten</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#workshops">Workshops</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#ingredienten">Ingrediënten</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#reviews">Reviews</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#winkels">Winkels</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
 </div>
 <!-- Mobile Menu Toggle -->
 <button aria-label="Menu" class="md:hidden p-2 text-on-surface-variant" id="mobile-menu-btn">
@@ -166,12 +187,12 @@
 <div class="grain-overlay absolute inset-0 pointer-events-none"></div>
 <!-- Hero Section -->
 <section class="py-24 text-center max-w-4xl mx-auto px-margin-mobile md:px-0">
-<a class="inline-flex items-center gap-1 text-secondary font-label-lg text-label-sm uppercase tracking-widest mb-6 hover:text-primary transition-colors" href="index.html#ingredienten">
+<a class="hero-enter inline-flex items-center gap-1 text-secondary font-label-lg text-label-sm uppercase tracking-widest mb-6 hover:text-primary transition-colors" href="index.html#ingredienten">
 <span class="material-symbols-outlined text-base">arrow_back</span> Terug naar home
 </a>
-<span class="font-label-lg text-label-lg text-secondary uppercase tracking-[0.2em] mb-4 block">Kwaliteit &amp; Transparantie</span>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Ingrediënten &amp; Allergenen</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
+<span class="hero-enter font-label-lg text-label-lg text-secondary uppercase tracking-[0.2em] mb-4 block">Kwaliteit &amp; Transparantie</span>
+<h1 class="hero-enter font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Ingrediënten &amp; Allergenen</h1>
+<p class="hero-enter font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
                 Bij Rudolf Vermeulen geloven we dat ware luxe begint bij de puurheid van ingrediënten. Hieronder vindt u een gedetailleerd overzicht van onze basischocolade en mogelijke allergenen.
             </p>
 </section>
@@ -296,7 +317,7 @@
                         Heeft u een specifieke allergie of volgt u een bijzonder dieet? Onze meester-chocolatier denkt graag met u mee voor een passend assortiment.
                     </p>
 <div class="flex flex-col md:flex-row gap-gutter justify-center items-center">
-<a class="px-8 py-4 bg-white text-primary font-label-lg text-label-lg rounded-full hover:bg-secondary-container transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5" href="mailto:info@rudolfvermeulenbonbons.nl">
+<a class="btn-shine px-8 py-4 bg-white text-primary font-label-lg text-label-lg rounded-full hover:bg-secondary-container transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5" href="mailto:info@rudolfvermeulenbonbons.nl">
 <span class="material-symbols-outlined">mail</span>
                             Stuur een email
                         </a>
