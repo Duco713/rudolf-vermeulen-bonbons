@@ -113,9 +113,30 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         /* Extra ruimte onder anker-links zodat de vaste navigatie de titels niet afdekt */
         section[id] { scroll-margin-top: 96px; }
+
+        /* ---- Animaties ---- */
+        @media (prefers-reduced-motion: no-preference) {
+            .js-anim .parallax-bg { animation: kenburns 22s ease-out forwards; transform-origin: center; }
+            @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
+            .js-anim .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease-out, transform .7s ease-out; }
+            .js-anim .reveal.is-visible { opacity: 1; transform: none; }
+            .js-anim .hero-enter { opacity: 0; transform: translateY(20px); animation: heroIn .8s ease-out forwards; }
+            .js-anim .hero-enter:nth-child(1){ animation-delay: .05s }
+            .js-anim .hero-enter:nth-child(2){ animation-delay: .2s }
+            .js-anim .hero-enter:nth-child(3){ animation-delay: .35s }
+            .js-anim .hero-enter:nth-child(4){ animation-delay: .5s }
+            @keyframes heroIn { to { opacity: 1; transform: none; } }
+        }
+        .nav-link { position: relative; }
+        .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:100%; background-color:#745a31; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+        .nav-link:hover::after, .nav-link.text-primary::after { transform:scaleX(1); }
+        .btn-shine { position:relative; overflow:hidden; }
+        .btn-shine::after { content:''; position:absolute; top:0; left:-75%; width:50%; height:100%; background:linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent); transform:skewX(-20deg); transition:left .6s ease; pointer-events:none; }
+        .btn-shine:hover::after { left:125%; }
     </style>
 </head>
 <body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<script>document.documentElement.classList.add('js-anim')</script>
 <!-- Navigation -->
 <nav class="fixed w-full top-0 z-50 bg-ivory-base border-b border-outline-variant/30 transition-all duration-300" id="main-nav">
 <div class="relative flex items-center justify-between md:justify-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit min-h-[80px]">
@@ -161,19 +182,19 @@
 <div class="absolute inset-0 bg-gradient-to-b from-surface-bright/80 via-surface-bright/40 to-surface-bright/90"></div>
 </div>
 <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-<span class="inline-block font-label-lg text-label-lg font-bold text-on-secondary-container tracking-[0.2em] uppercase mb-6">Meester-chocolatiers sinds 1939</span>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 max-w-4xl mx-auto drop-shadow-sm">Traditionele Ambacht in Elke Bonbon</h1>
-<p class="font-body-lg text-on-surface font-medium max-w-2xl mx-auto mb-12">Ervaar de pure passie van drie generaties vakmanschap. Onze handgemaakte creaties vertellen een verhaal van geduld, de fijnste cacao en onvergetelijke smaken.</p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-<a class="px-8 py-4 bg-primary-container text-on-primary font-label-lg text-label-lg rounded-full hover:bg-primary transition-all duration-300 hover:shadow-[inset_0_0_0_1px_#BD9E6F]" href="#producten">Bekijk Onze Collectie</a>
-<a class="px-8 py-4 bg-transparent text-primary font-label-lg text-label-lg rounded-full border border-secondary hover:bg-warm-beige/30 transition-all duration-300" href="#over-ons">Ontdek Ons Verhaal</a>
+<span class="hero-enter inline-block font-label-lg text-label-lg font-bold text-on-secondary-container tracking-[0.2em] uppercase mb-6">Meester-chocolatiers sinds 1939</span>
+<h1 class="hero-enter font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 max-w-4xl mx-auto drop-shadow-sm">Traditionele Ambacht in Elke Bonbon</h1>
+<p class="hero-enter font-body-lg text-on-surface font-medium max-w-2xl mx-auto mb-12">Ervaar de pure passie van drie generaties vakmanschap. Onze handgemaakte creaties vertellen een verhaal van geduld, de fijnste cacao en onvergetelijke smaken.</p>
+<div class="hero-enter flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="btn-shine px-8 py-4 bg-primary-container text-on-primary font-label-lg text-label-lg rounded-full hover:bg-primary transition-all duration-300 hover:shadow-[inset_0_0_0_1px_#BD9E6F]" href="#producten">Bekijk Onze Collectie</a>
+<a class="btn-shine px-8 py-4 bg-transparent text-primary font-label-lg text-label-lg rounded-full border border-secondary hover:bg-warm-beige/30 transition-all duration-300" href="#over-ons">Ontdek Ons Verhaal</a>
 </div>
 </div>
 </section>
 <!-- Over Ons Section -->
 <section class="py-24 bg-ivory-base" id="over-ons">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-24">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-24 reveal">
 <div class="md:col-span-5 space-y-8">
 <div class="inline-block px-4 py-1 bg-warm-beige rounded-full border border-secondary-container">
 <span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Onze Historie</span>
@@ -189,15 +210,15 @@
                 </p>
 <ul class="space-y-4 pt-2">
 <li class="flex gap-4">
-<span class="font-headline-md text-secondary w-16 flex-shrink-0">1939</span>
+<span class="font-headline-md text-secondary w-16 flex-shrink-0 count-up">1939</span>
 <p class="font-body-md text-on-surface-variant">Rudolf Vermeulen opent een kleinschalige chocolaterie in Waalre en legt de basis voor het familiebedrijf.</p>
 </li>
 <li class="flex gap-4">
-<span class="font-headline-md text-secondary w-16 flex-shrink-0">1965</span>
+<span class="font-headline-md text-secondary w-16 flex-shrink-0 count-up">1965</span>
 <p class="font-body-md text-on-surface-variant">Zoon Rudi Vermeulen neemt het roer over en laat de chocolaterie uitgroeien tot een kleinschalige bonbonfabriek — trouw aan dezelfde kernwaarden.</p>
 </li>
 <li class="flex gap-4">
-<span class="font-headline-md text-secondary w-16 flex-shrink-0">2005</span>
+<span class="font-headline-md text-secondary w-16 flex-shrink-0 count-up">2005</span>
 <p class="font-body-md text-on-surface-variant">Rudi Vermeulen, zoon van Rudi, neemt als derde generatie het stokje over. Hij combineert het ambachtelijke handwerk volgens het originele recept met een flexibele, kleinschalige fabriek.</p>
 </li>
 </ul>
@@ -207,7 +228,7 @@
 <img alt="Historische foto van de chocolaterie" class="w-full h-[500px] object-cover rounded-xl shadow-sm border border-outline-variant/20" src="Images/atelier-historie.png"/>
 </div>
 </div>
-<div class="text-center mb-16">
+<div class="text-center mb-16 reveal">
 <h2 class="font-headline-lg text-headline-lg text-deep-brown mb-4">Het Atelier: Waar Tijd Stilstaat</h2>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
                 In ons atelier heerst de rust van het ambacht. Geen machines die het tempo bepalen, maar de ervaren handen van onze chocolatiers die elke vulling perfectioneren.
@@ -239,7 +260,7 @@
 <!-- Producten Section -->
 <section class="py-24 bg-surface-container-low" id="producten">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
+<div class="text-center mb-16 reveal">
 <span class="inline-block font-label-lg text-label-lg text-secondary tracking-[0.2em] uppercase mb-4">Onze Collectie</span>
 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Een Symfonie van Chocolade</h2>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
@@ -248,7 +269,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="product-grid">
 <!-- Bonbons van Rudolf Vermeulen -->
-<article class="product-card lg:col-span-2 group relative bg-ivory-base rounded-xl overflow-hidden border border-secondary/30 flex flex-col md:flex-row transition-all duration-500 hover:shadow-xl" data-category="bonbons">
+<article class="product-card reveal lg:col-span-2 group relative bg-ivory-base rounded-xl overflow-hidden border border-secondary/30 flex flex-col md:flex-row transition-all duration-500 hover:shadow-xl" data-category="bonbons">
 <div class="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
 <img alt="Bonbons van Rudolf Vermeulen" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="Images/bonbons-assortiment.png"/>
 </div>
@@ -266,7 +287,7 @@
 </div>
 </article>
 <!-- Bonbons voor Pasen -->
-<article class="product-card group relative bg-warm-beige/30 rounded-xl overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-1" data-category="pasen">
+<article class="product-card reveal group relative bg-warm-beige/30 rounded-xl overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-1" data-category="pasen">
 <div class="relative h-64 overflow-hidden p-4">
 <img alt="Bonbons voor Pasen" class="w-full h-full object-cover rounded-lg transition-transform duration-700 group-hover:scale-105" src="Images/bonbons-pasen.png"/>
 </div>
@@ -280,7 +301,7 @@
 </div>
 </article>
 <!-- Chocolade met Sinterklaas -->
-<article class="product-card lg:col-span-2 relative rounded-xl overflow-hidden bg-deep-brown text-ivory-base flex items-center min-h-[300px]" data-category="sinterklaas">
+<article class="product-card reveal lg:col-span-2 relative rounded-xl overflow-hidden bg-deep-brown text-ivory-base flex items-center min-h-[300px]" data-category="sinterklaas">
 <div class="absolute inset-0 opacity-40">
 <img alt="Chocolade met Sinterklaas" class="w-full h-full object-cover" src="Images/chocolade-sinterklaas.png"/>
 </div>
@@ -299,7 +320,7 @@
 </div>
 </article>
 <!-- Kerstbonbons -->
-<article class="product-card bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border border-outline-variant/30" data-category="kerst">
+<article class="product-card reveal bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border border-outline-variant/30" data-category="kerst">
 <div>
 <span class="font-label-sm text-secondary uppercase tracking-widest block mb-4">Feestdagen</span>
 <h4 class="font-headline-md text-headline-md text-deep-brown mb-4">Kerstbonbons</h4>
@@ -323,7 +344,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Workshop 1: Volwassenen -->
-<div class="bg-ivory-base rounded-xl border border-outline-variant/30 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-all">
+<div class="reveal bg-ivory-base rounded-xl border border-outline-variant/30 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-all">
 <div class="p-8 flex-grow flex flex-col">
 <h3 class="font-headline-md text-headline-md text-primary mb-4">Workshop bonbons maken (volwassenen)</h3>
 <p class="font-body-md text-on-surface-variant mb-6">Zeer geschikt als familiefeestje, bedrijfsuitje of vrijgezellenfeest. U maakt zelf massieve chocolaatjes, dipt uw eigen bonbons en versiert ze tot mooie creaties.</p>
@@ -336,7 +357,7 @@
 </div>
 </div>
 <!-- Workshop 2: Luxe Volwassenen -->
-<div class="bg-warm-beige/20 rounded-xl border border-secondary/30 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-all relative">
+<div class="reveal bg-warm-beige/20 rounded-xl border border-secondary/30 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-all relative">
 <div class="absolute top-4 right-4">
 <span class="bg-secondary text-white text-[10px] uppercase tracking-widest px-2 py-1 rounded-full">Populair</span>
 </div>
@@ -352,7 +373,7 @@
 </div>
 </div>
 <!-- Workshop 3: Kinderen -->
-<div class="bg-ivory-base rounded-xl border border-outline-variant/30 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-all">
+<div class="reveal bg-ivory-base rounded-xl border border-outline-variant/30 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-all">
 <div class="p-8 flex-grow flex flex-col">
 <h3 class="font-headline-md text-headline-md text-primary mb-4">Workshop bonbons maken (kinderen)</h3>
 <p class="font-body-md text-on-surface-variant mb-6">Een eerste kennismaking met chocolade. Inclusief een rondleiding door onze fabriek, waarna de kinderen zelf aan de slag gaan met massieve chocolaatjes en lolly’s.</p>
@@ -372,7 +393,7 @@
 <!-- Ingrediënten & Allergenen Section -->
 <section class="py-24 bg-surface-container-low" id="ingredienten">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
+<div class="text-center mb-16 reveal">
 <span class="inline-block font-label-lg text-label-lg text-secondary tracking-[0.2em] uppercase mb-4">Kwaliteit &amp; Transparantie</span>
 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Eerlijkheid en Zuiverheid</h2>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
@@ -418,7 +439,7 @@
 <!-- Reviews Section -->
 <section class="py-24 bg-ivory-base" id="reviews">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
+<div class="text-center mb-16 reveal">
 <span class="inline-block font-label-lg text-label-lg text-secondary tracking-[0.2em] uppercase mb-4">Klantervaringen</span>
 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Wat onze liefhebbers zeggen</h2>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
@@ -427,7 +448,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Review 1 -->
-<div class="bg-warm-beige/30 p-8 rounded-xl relative overflow-hidden border border-outline-variant/20 hover:-translate-y-1 hover:shadow-sm transition-all flex flex-col h-full">
+<div class="reveal bg-warm-beige/30 p-8 rounded-xl relative overflow-hidden border border-outline-variant/20 hover:-translate-y-1 hover:shadow-sm transition-all flex flex-col h-full">
 <span class="material-symbols-outlined absolute top-2 right-4 text-8xl text-secondary-fixed-dim/20 pointer-events-none select-none" style="font-variation-settings: 'FILL' 1;">format_quote</span>
 <div class="flex text-secondary mb-4 relative z-10">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -444,7 +465,7 @@
 </div>
 </div>
 <!-- Review 2 -->
-<div class="bg-warm-beige/30 p-8 rounded-xl relative overflow-hidden border border-outline-variant/20 hover:-translate-y-1 hover:shadow-sm transition-all flex flex-col h-full">
+<div class="reveal bg-warm-beige/30 p-8 rounded-xl relative overflow-hidden border border-outline-variant/20 hover:-translate-y-1 hover:shadow-sm transition-all flex flex-col h-full">
 <span class="material-symbols-outlined absolute top-2 right-4 text-8xl text-secondary-fixed-dim/20 pointer-events-none select-none" style="font-variation-settings: 'FILL' 1;">format_quote</span>
 <div class="flex text-secondary mb-4 relative z-10">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -461,7 +482,7 @@
 </div>
 </div>
 <!-- Review 3 -->
-<div class="bg-warm-beige/30 p-8 rounded-xl relative overflow-hidden border border-outline-variant/20 hover:-translate-y-1 hover:shadow-sm transition-all flex flex-col h-full">
+<div class="reveal bg-warm-beige/30 p-8 rounded-xl relative overflow-hidden border border-outline-variant/20 hover:-translate-y-1 hover:shadow-sm transition-all flex flex-col h-full">
 <span class="material-symbols-outlined absolute top-2 right-4 text-8xl text-secondary-fixed-dim/20 pointer-events-none select-none" style="font-variation-settings: 'FILL' 1;">format_quote</span>
 <div class="flex text-secondary mb-4 relative z-10">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -483,7 +504,7 @@
 <!-- Winkels Section -->
 <section class="py-24 bg-surface-container-low" id="winkels">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
+<div class="text-center mb-16 reveal">
 <span class="inline-block font-label-lg text-label-lg text-secondary tracking-[0.2em] uppercase mb-4">Bezoek Ons</span>
 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Onze Winkels</h2>
 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
@@ -492,7 +513,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 <!-- Winkel Waalre -->
-<div class="group bg-warm-beige/20 rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col h-full">
+<div class="reveal group bg-warm-beige/20 rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col h-full">
 <div class="aspect-[4/3] relative overflow-hidden">
 <img alt="Winkel Waalre exterieur" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="Images/opvulling/Winkel%20waalre.png"/>
 <div class="absolute inset-0 bg-gradient-to-t from-deep-brown/70 to-transparent"></div>
@@ -514,7 +535,7 @@
 </div>
 </div>
 <!-- Winkel Veghel -->
-<div class="group bg-warm-beige/20 rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col h-full">
+<div class="reveal group bg-warm-beige/20 rounded-xl overflow-hidden hover:-translate-y-1 transition-all flex flex-col h-full">
 <div class="aspect-[4/3] relative overflow-hidden">
 <img alt="Winkel Veghel exterieur" class="w-full h-full object-cover transition-transform group-hover:scale-105" src="Images/opvulling/Veghel%20winkel.webp"/>
 <div class="absolute inset-0 bg-gradient-to-t from-deep-brown/70 to-transparent"></div>
@@ -543,7 +564,7 @@
 <section class="py-24 bg-ivory-base" id="contact">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-sm border border-outline-variant/30">
+<div class="reveal lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-sm border border-outline-variant/30">
 <div class="mb-12">
 <span class="inline-block font-label-lg text-label-lg text-secondary tracking-[0.2em] uppercase mb-4">Maatwerk &amp; Advies</span>
 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">Persoonlijk Contact</h2>
@@ -565,11 +586,11 @@
 <textarea class="block w-full bg-transparent border-0 border-b border-outline-variant/60 py-3 px-0 focus:ring-0 focus:border-secondary peer resize-none" id="message" name="message" placeholder=" " rows="4" required></textarea>
 <label class="absolute left-0 top-3 font-label-sm text-on-surface-variant transition-all peer-focus:-top-4 peer-focus:text-secondary peer-[:not(:placeholder-shown)]:-top-4" for="message">Hoe kunnen we u helpen?</label>
 </div>
-<button class="bg-primary text-on-primary font-label-lg py-4 px-12 rounded-full hover:bg-surface-tint transition-all" type="submit">Bericht Versturen</button>
+<button class="btn-shine bg-primary text-on-primary font-label-lg py-4 px-12 rounded-full hover:bg-surface-tint transition-all" type="submit">Bericht Versturen</button>
 <p class="font-body-md text-secondary hidden" id="form-status" role="status" aria-live="polite"></p>
 </form>
 </div>
-<div class="lg:col-span-5 flex flex-col gap-gutter">
+<div class="reveal lg:col-span-5 flex flex-col gap-gutter">
 <div class="bg-warm-beige rounded-xl p-8 flex flex-col justify-between h-full relative overflow-hidden">
 <div class="absolute inset-0 opacity-10" style="background-image: url('Images/atelier-texture.png')"></div>
 <div class="relative z-10">
@@ -729,5 +750,41 @@
 
     window.addEventListener('scroll', updateActiveLink, { passive: true });
     updateActiveLink();
+
+    // ---- Scroll-reveal ----
+    const revObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revObserver.unobserve(entry.target); }
+        });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => {
+        const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+        const idx = sibs.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = (idx * 90) + 'ms';
+        revObserver.observe(el);
+    });
+
+    // ---- Jaartallen tellen op ----
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function countUp(el) {
+        const target = parseInt(el.textContent, 10);
+        if (isNaN(target)) return;
+        const start = target - 40, dur = 1200;
+        let t0 = null;
+        function step(ts) {
+            if (!t0) t0 = ts;
+            const p = Math.min((ts - t0) / dur, 1);
+            const eased = p < .5 ? 2*p*p : 1 - Math.pow(-2*p+2, 2)/2;
+            el.textContent = Math.round(start + (target - start) * eased);
+            if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+    }
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) { if (!reduceMotion) countUp(entry.target); countObserver.unobserve(entry.target); }
+        });
+    }, { threshold: 1 });
+    document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 </script>
 </body></html>
